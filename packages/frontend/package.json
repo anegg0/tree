@@ -1,0 +1,34 @@
+{
+  "name": "tree",
+  "version": "2.0.0",
+  "author": "Gael Blanchemain <gael.blanchemain@protonmail.com>",
+  "description": "Proof of Plant Prototype",
+  "license": "MIT",
+  "main": "build",
+  "private": true,
+  "repository": "https://github.com/anegg0/tree.git",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom"
+  },
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/jwt-decode": "^2.2.1",
+    "@types/react": "^16.9.45",
+    "@types/react-dom": "^16.9.8",
+    "@types/web3": "^1.0.18",
+    "jwt-decode": "^2.2.0",
+    "react": "^16.13.1",
+    "react-blockies": "^1.4.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "web3": "^1.2.11"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
