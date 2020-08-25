@@ -1,5 +1,5 @@
 {
-  "name": "tree",
+  "name": "@tree/frontend",
   "version": "2.0.0",
   "author": "Gael Blanchemain <gael.blanchemain@protonmail.com>",
   "description": "Proof of Plant Prototype",
@@ -22,6 +22,7 @@
     "react": "^16.13.1",
     "react-blockies": "^1.4.1",
     "react-dom": "^16.13.1",
+    "react-dropzone-uploader": "^2.11.0",
     "react-scripts": "3.4.1",
     "web3": "^1.2.11"
   },

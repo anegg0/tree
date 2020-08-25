@@ -126,12 +126,6 @@ export class Login extends React.Component<Props> {
         <button className="Login-button Login-mm" onClick={this.handleClick}>
           {loading ? 'Loading...' : 'Login with MetaMask'}
         </button>
-        <button className="Login-button Login-fb" disabled>
-          Login with Facebook
-        </button>
-        <button className="Login-button Login-email" disabled>
-          Login with Email
-        </button>
       </div>
     );
   }
