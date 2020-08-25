@@ -2,6 +2,7 @@ import './App.css';
 
 import React from 'react';
 
+import Uploader from '../FileManager/Uploader';
 import { Login } from '../Login';
 import { Profile } from '../Profile/Profile';
 import { Auth } from '../types';
@@ -10,48 +11,53 @@ import logo from './logo.svg';
 const LS_KEY = 'login-with-metamask:auth';
 
 interface State {
-  auth?: Auth;
+    auth?: Auth;
 }
 
 export class App extends React.Component<{}, State> {
-  state: State = {};
+    state: State = {};
 
-  componentDidMount(): void {
-    // Access token is stored in localstorage
-    const ls = window.localStorage.getItem(LS_KEY);
-    const auth = ls && JSON.parse(ls);
-    this.setState({
-      auth,
-    });
-  }
+    componentDidMount(): void {
+        // Access token is stored in localstorage
+        const ls = window.localStorage.getItem(LS_KEY);
+        const auth = ls && JSON.parse(ls);
+        this.setState({
+            auth,
+        });
+    }
 
-  handleLoggedIn = (auth: Auth): void => {
-    localStorage.setItem(LS_KEY, JSON.stringify(auth));
-    this.setState({ auth });
-  };
+    handleLoggedIn = (auth: Auth): void => {
+        localStorage.setItem(LS_KEY, JSON.stringify(auth));
+        this.setState({ auth });
+    };
 
-  handleLoggedOut = (): void => {
-    localStorage.removeItem(LS_KEY);
-    this.setState({ auth: undefined });
-  };
+    handleLoggedOut = (): void => {
+        localStorage.removeItem(LS_KEY);
+        this.setState({ auth: undefined });
+    };
 
-  render(): JSX.Element {
-    const { auth } = this.state;
+    render(): JSX.Element {
+        const { auth } = this.state;
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Tree</h1>
-        </header>
-        <div className="App-intro">
-          {auth ? (
-            <Profile auth={auth} onLoggedOut={this.handleLoggedOut} />
-          ) : (
-            <Login onLoggedIn={this.handleLoggedIn} />
-          )}
-        </div>
-      </div>
-    );
-  }
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <h1 className="App-title">Welcome to Tree</h1>
+                </header>
+                <div className="App-intro">
+                    {auth ? (
+                        <div>
+                            <Profile auth={auth} onLoggedOut={this.handleLoggedOut} />
+                            <Uploader />
+                        </div>
+                    ) : (
+                            <div>
+                                <Login onLoggedIn={this.handleLoggedIn} />
+                            </div>
+                        )}
+                </div>
+            </div>
+        );
+    }
 }
