@@ -5,7 +5,7 @@ const Uploader = (): JSX.Element => {
     // add type defs to function props to get TS support inside function bodies,
     // and not just where functions are passed as props into Dropzone
     const getUploadParams: IDropzoneProps['getUploadParams'] = () => ({
-        url: 'https://localhost:3002',
+        url: 'http://localhost:8000/api/files',
     });
 
     const handleSubmit: IDropzoneProps['onSubmit'] = (files, allFiles) => {
