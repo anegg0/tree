@@ -14878,10 +14878,11 @@ split@~0.3.0:
   dependencies:
     through "2"
 
-sprintf-js@1.1.2:
+sprintf-js@1.1.2, "sprintf-js@https://github.com/jmquigley/sprintf.js.git#dc62b1c":
   version "1.1.2"
-  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.2.tgz#da1765262bf8c0f571749f2ad6c26300207ae673"
-  integrity sha512-VE0SOVEHCk7Qc8ulkWw3ntAzXuqf7S2lvwQaDLRnUeIEaKNQJzV6BwmLKhOqT61aGhfUMrXeaBk+oDGCzvhcug==
+  resolved "https://github.com/jmquigley/sprintf.js.git#dc62b1cfe788952cfee6f303a174a5f4546625a3"
+  dependencies:
+    util.obj-cycle "0.0.1"
 
 sprintf-js@~1.0.2:
   version "1.0.3"
@@ -15721,6 +15722,11 @@ typescript@^3.9.7:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
+typescript@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.2.tgz#7ea7c88777c723c681e33bf7988be5d008d05ac2"
+  integrity sha512-e4ERvRV2wb+rRZ/IQeb3jm2VxBsirQLpQhdxplZ2MEzGvDkkMmPglecnNDfSUBivMjP93vRbngYYDQqQ/78bcQ==
+
 uint8arrays@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/uint8arrays/-/uint8arrays-1.0.0.tgz#9cf979517f85c32d6ef54adf824e3499bb715331"
@@ -15977,6 +15983,50 @@ util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
+util.constants@^0.0.30:
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/util.constants/-/util.constants-0.0.30.tgz#0e05b81da591f9250749deba4a31b8e54a920b2d"
+  integrity sha512-qGAcYmSeuDGiI3Wi+bBGEbMc9o1N2XN+/WUwXWiHNWL64AeOkURYY2TXXoqg6MdPsFH31eT6SG9IsD68dTd4+w==
+
+util.home@0.0.33:
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/util.home/-/util.home-0.0.33.tgz#c691514897cff32e5757642a11ccdcb1ef4d5e9d"
+  integrity sha512-QGfDmeQ3uW2Jad+Zpni8uLQW+enR7EsSsGU3r3sbvZODbkf59S+MHogu13br2E/cvv5sNz2VdhxI38R9HAZBrA==
+  dependencies:
+    util.toolbox "0.0.86"
+    util.toolbox-node "^0.0.8"
+
+util.join@0.0.27:
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/util.join/-/util.join-0.0.27.tgz#a0f84eb18af421d9d34f86a88ca264dd0aca301f"
+  integrity sha512-6hkIhH69ztPbI585b7aBezvVcw4WZQ47Osd7NmdjPy1Xip4iKVOcgDC2hz7SACJPPo8WRjOnf4UOitsOzrhp1A==
+  dependencies:
+    util.home "0.0.33"
+
+util.log@^0.0.45:
+  version "0.0.45"
+  resolved "https://registry.yarnpkg.com/util.log/-/util.log-0.0.45.tgz#7e76582c918237c98fea6c19f93b0832d7c17e62"
+  integrity sha512-nahe9l1b0Sm9xLn9JNjTQ8gKG+OJD+UmrR0kBXl4AVKZWioHu6AjJBafU2geV8+IIqRJRzd9V5ApN76hGwgjuQ==
+  dependencies:
+    chalk "^3.0.0"
+    debug "^4.1.1"
+    fs-extra "^8.1.0"
+    sprintf-js "https://github.com/jmquigley/sprintf.js.git#dc62b1c"
+    util.join "0.0.27"
+    util.matches "^0.0.13"
+    util.timestamp "0.0.44"
+    uuid "^3.3.3"
+
+util.matches@^0.0.13:
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/util.matches/-/util.matches-0.0.13.tgz#9cbc0623e7c6bc9eeaa93183229accd514190b38"
+  integrity sha512-sGz2MXN2Mdzno9thkCtu7H004Cv355FL3tolo1SKbpGWpaZtiQsmsxx0K1PsrcY/42tjNF0VgYpYSUTqMQ84ZA==
+
+util.obj-cycle@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/util.obj-cycle/-/util.obj-cycle-0.0.1.tgz#bedbfa187a298efb83732c753de9f62f6793639e"
+  integrity sha512-ddSbrhSUEUkvhmGoD+liKTClKq07tMy5tWFeMoJl57ZL/81DAnZmu/++JT1atlfc4/SgwvHmJbQGGooA94Lu2Q==
+
 util.promisify@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/util.promisify/-/util.promisify-1.0.0.tgz#440f7165a459c9a16dc145eb8e72f35687097030"
@@ -15994,6 +16044,36 @@ util.promisify@^1.0.0, util.promisify@~1.0.0:
     es-abstract "^1.17.2"
     has-symbols "^1.0.1"
     object.getownpropertydescriptors "^2.1.0"
+
+util.rstrip@0.0.58:
+  version "0.0.58"
+  resolved "https://registry.yarnpkg.com/util.rstrip/-/util.rstrip-0.0.58.tgz#5cccb1a4523eeec5bd811c3c4b73cdaf2e309158"
+  integrity sha512-v7AIw3458hJttRhMNwewjcWYl7M2ELELKdFZTfsm6zGFkxO2vO9lAcakbpA9Jw9pT741RknfwksYpXtf2kpjaQ==
+
+util.timestamp@0.0.44:
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/util.timestamp/-/util.timestamp-0.0.44.tgz#0849181a269e5fbefdd3b4f9c20982e702a1e929"
+  integrity sha512-aTsq/29RZ3re+d58xt8vRZcyUAML6P3bMElxihg+VkveOCUiXHVqT08fdqMM4A0j2XWN+G8hhsQwNGxxo4W15A==
+  dependencies:
+    strftime "^0.10.0"
+
+util.toolbox-node@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/util.toolbox-node/-/util.toolbox-node-0.0.8.tgz#e359a170c9bd2f503bfd7d756faf338e46c6027a"
+  integrity sha512-tKwtQYytuiYHADcsuFHevdPZ5FL3NSQwG3LwWW7vFlAQlL6nVwK27vnfafg3snYHgGr8S2XT8QskEnmQXfZ7dg==
+  dependencies:
+    fs-extra "^8.1.0"
+    util.constants "^0.0.30"
+    util.toolbox "^0.0.86"
+
+util.toolbox@0.0.86, util.toolbox@^0.0.86:
+  version "0.0.86"
+  resolved "https://registry.yarnpkg.com/util.toolbox/-/util.toolbox-0.0.86.tgz#a4be076c48110bc23432242dc4e6881d68591001"
+  integrity sha512-4ZxJN6k0ofaicBAjlyyTwrg+3lTnFjcoT9wk5ZVoGAtB9pRsMhYxL9/oI5bMx4NTyMFVrH3fgCu3tWTBX9sw2Q==
+  dependencies:
+    util.constants "^0.0.30"
+    util.rstrip "0.0.58"
+    uuid "^3.3.3"
 
 util@0.10.3:
   version "0.10.3"
@@ -16024,7 +16104,7 @@ uuid@3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
-uuid@^3.0.1, uuid@^3.2.1, uuid@^3.2.2, uuid@^3.3.2:
+uuid@^3.0.1, uuid@^3.2.1, uuid@^3.2.2, uuid@^3.3.2, uuid@^3.3.3:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==

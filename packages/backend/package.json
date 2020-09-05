@@ -40,12 +40,14 @@
     "jsonwebtoken": "^8.5.1",
     "sequelize": "^6.3.4",
     "sqlite3": "^5.0.0",
+    "typescript": "^4.0.2",
     "web3-utils": "^1.2.11"
   },
   "devDependencies": {
     "@types/crypto-js": "^3.1.47",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "util.log": "^0.0.45"
   }
 }

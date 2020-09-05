@@ -26,27 +26,17 @@ export const create = (req: Request, res: Response, next: NextFunction) => {
     // console.log(moment().format('X'));
 
     //## save to fps
-    const fileIPFS = ipfs.files.add(fileToAdd);
-    console.log('fileIPFS returns: ' + fileIPFS);
-    // console.log('Added to ipfs : ' + fileIPFS[0].hash);
+    async function asyncAddToIpfs() {
+      try {
+        // const data = await getStringFromWebServerAsync("http://localhost/GetAString");
 
-    // //## save to blockchain
-    console.log('fileHash : ' + fileHash);
-    // const data = await hsService.add(fileIPFS[0].hash, fileHash, epochTime);
-
-    // console.log('Added to ETH Blockchain!');
-    // res.status(200).send(JSON.stringify({ tx: data, ipfsHash: fileIPFS[0].hash, fileHash: fileHash }));
-
-    File.create(req.body)
-      .then((file: File) => res.json(file))
-      .catch(next);
-  } catch (err) {
-    console.log(err);
-
-    if (err.message.includes('revert')) {
-      res.status(409).send();
-    } else {
-      res.status(500).send();
+        const fileIPFS = await ipfs.files.add(fileToAdd);
+        console.log(fileIPFS);
+      }
+      catch (err) {
+        console.log(err);
+      }
     }
-  }
+    console.log('fileHash : ' + fileHash);
+  } finally { }
 }
