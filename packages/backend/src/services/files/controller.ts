@@ -1,22 +1,46 @@
-import { NextFunction, Request, Response } from 'express';
-
-import { File } from '../../models/file.model';
 // require('../../con fig');
 // import fs from 'fs';
 // import moment from 'moment';
 // import web3Utils from 'web3-URLs';
 import CryptoJS from 'crypto-js';
+import { NextFunction, Request, Response } from 'express';
+// import IPFS from ('./types.d');
+
+// import * as IPFS from 'ipfs'
+// import ipfsAPI from 'ipfs-api'&& './types.d';
 //import CryptoJS = require("../../../../../node_modules/@types/crypto-js")
 // import bodyParser from 'body-parser';
-// import ipfsAPI from 'ipfs-http-client';
-var ipfsAPI = require('ipfs-api');
+import IPFS from 'ipfs-api';
 // import IPFS from ('./types.d');
-// import * as ipfsAPI '@textile/ipfs-lite'
-// const ipfs = ipfsAPI('127.0.0.1', '5001', { protocol: 'http' });
-var ipfs = ipfsAPI('localhost', '5001', { protocol: 'http' });
+// import * as ipfsAPI from '@textile/ipfs-lite';
+// import { setupLibP2PHost } from '@textile/ipfs-lite/src/setup'
+// import { Peer, BlockStore } from '@textile/ipfs-lite'
+// import { MemoryDatastore } from 'interface-datastore'
+
+// const store = new BlockStore(new MemoryDatastore())
+
+//   ; (async function() {
+//     let host = await setupLibP2PHost()
+//     let lite = new Peer(store, host)
+//     await lite.start()
+
+//     const cid = 'QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u'
+//     const data = await lite.getFile(cid)
+//     console.log(data.toString())
+//     // Hello World
+//     await lite.stop()
+//   })
+
+
+
+
+
+
+// const ipfsClient = new ipfsOptions.host: '127.0.0.1', port: '5001', { protocol: 'http' });
+// const ipfsClient = new ipfs(IPFS.Options.url);
+
 export const create = (req: Request, res: Response, next: NextFunction) => {
   try {
-
     //## prepare data
     const fileToAdd = req.body;
     const fileContentWordArray = CryptoJS.lib.WordArray.create(req.body);
@@ -25,13 +49,13 @@ export const create = (req: Request, res: Response, next: NextFunction) => {
     // const epochTime = Math.round(moment().format('X'));
     // console.log(moment().format('X'));
 
-    //## save to fps
+    //## save to ipfs
     async function asyncAddToIpfs() {
       try {
         // const data = await getStringFromWebServerAsync("http://localhost/GetAString");
 
-        const fileIPFS = await ipfs.files.add(fileToAdd);
-        console.log(fileIPFS);
+        // const fileIPFS = await ipfs.files.add(fileToAdd);
+        // console.log("pour fileIPFS, cest" + fileIPFS);
       }
       catch (err) {
         console.log(err);
@@ -40,3 +64,37 @@ export const create = (req: Request, res: Response, next: NextFunction) => {
     console.log('fileHash : ' + fileHash);
   } finally { }
 }
+
+// export const get = (req: Request, res: Response, next: NextFunction) => {
+//   if (!req.query.hash) {
+//     res.status(400).send({ msg: 'Please provide file hash!' });
+//     return;
+//   }
+
+//   var hash = req.query.hash;
+//   try {
+//     //## get from blockchain
+//     const response = await hsService.get(hash);
+//     if (response[0].exists == false) {
+//       console.log('File hash not found in smart contract!');
+//       res.status(404).send("Not found!");
+//       return;
+//     }
+//     console.log('Found in ETH Blockchain: ' + web3Utils.bytesToString(response[0].filehash));
+
+//     const ipfsHash = web3Utils.bytesToString(response[0].ipfshash);
+//     //## get from ipfs
+//     const files = await ipfs.files.get(ipfsHash);
+//     files.forEach((file) => {
+//       console.log('Found in IPFS: ' + file.path);
+//       //console.log(file.content.toString('utf8'));
+//     });
+
+//     //## return
+//     console.log('File found in IPFS and ETH Blockchain!');
+//     res.status(200).send(JSON.stringify({ hash: hash, unixTimeAdded: response[0].dateAdded, exists: response[0].exists, url: CONFIG.ipfs_url + ipfsHash }));
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).send();
+//   }
+// })
