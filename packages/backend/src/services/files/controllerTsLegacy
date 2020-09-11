@@ -10,9 +10,7 @@ import { NextFunction, Request, Response } from 'express';
 // import ipfsAPI from 'ipfs-api'&& './types.d';
 //import CryptoJS = require("../../../../../node_modules/@types/crypto-js")
 // import bodyParser from 'body-parser';
-import IPFS from 'ipfs-api';
-// import IPFS from ('./types.d');
-// import * as ipfsAPI from '@textile/ipfs-lite';
+import * as IPFS from 'ipfs-api';
 // import { setupLibP2PHost } from '@textile/ipfs-lite/src/setup'
 // import { Peer, BlockStore } from '@textile/ipfs-lite'
 // import { MemoryDatastore } from 'interface-datastore'
@@ -32,13 +30,7 @@ import IPFS from 'ipfs-api';
 //   })
 
 
-
-
-
-
-// const ipfsClient = new ipfsOptions.host: '127.0.0.1', port: '5001', { protocol: 'http' });
-// const ipfsClient = new ipfs(IPFS.Options.url);
-
+const ipfs = IPFS('127.0.0.1', '5001', { protocol: 'http' });
 export const create = (req: Request, res: Response, next: NextFunction) => {
   try {
     //## prepare data

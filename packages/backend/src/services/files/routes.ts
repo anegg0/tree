@@ -1,10 +1,10 @@
 import express from 'express';
 
-import * as controller from './controller';
+// import * as controller from './controller';
 export const filesRouter = express.Router();
 
 /** POST /api/files */
-filesRouter.route('/').post(controller.create);
+// filesRouter.route('/').post(controller.create);
 
 // /** GET /api/users */
 // filesRouter.route('/').get(controller.find);

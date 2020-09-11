@@ -5,6 +5,7 @@
     "jsx": "react",
     "module": "commonjs",
     "skipLibCheck": true,
+    "esModuleInterop": true,
     "target": "es6"
   }
 }

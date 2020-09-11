@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "jsx": "react",
     "esModuleInterop": true,
     "outDir": "build",
     "module": "commonjs",
