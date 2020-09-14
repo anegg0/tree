@@ -3,8 +3,8 @@ import './App.css';
 import FileUpLoader from './FileUpLoader';
 import React from 'react';
 
-/* import { Grid, Segment, Header, Form, List, Message, Icon, Image, Tab } from 'semantic-ui-react'; */
-import { IpfsFile } from '../File/Ipfs';
+import { Grid, Segment, Input, Button, Header, Form, List, Message, Icon, Image, Tab } from 'semantic-ui-react';
+import { IpfsFile } from './IpfsFileType';
 import { Login } from '../Login';
 import { Profile } from '../Profile/Profile';
 import { Auth } from '../types';
@@ -81,7 +81,9 @@ export class App extends React.Component<{}, State> {
                     {auth ? (
                         <div>
                             <Profile auth={auth} onLoggedOut={this.handleLoggedOut} />
-                            <FileUpLoader />
+                            <div>
+                                <FileUpLoader />
+                            </div>
                         </div>
                     ) : (
                             <div>

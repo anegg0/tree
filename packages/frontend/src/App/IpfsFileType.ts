@@ -1,4 +1,4 @@
-class IpfsFile {
+export class IpfsFile {
   hash?: string;
   time?: string;
   exists?: boolean;
@@ -11,4 +11,4 @@ class IpfsFile {
   }
 }
 
-export { IpfsFile };
+// export { IpfsFile };

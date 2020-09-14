@@ -32,7 +32,7 @@ const FileUpLoader = () => {
 
     return (
         <>
-            <h1>File Uploader</h1>
+            <h3>File Uploader</h3>
             <Segment.Group>
                 <Segment>
                     <Form onSubmit={handleSubmit}>
