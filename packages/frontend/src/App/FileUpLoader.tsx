@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Segment, Form, Input, Button, Message } from 'semantic-ui-react';
+import { Grid, Card, Segment, Form, Input, Button, Message } from 'semantic-ui-react';
 import { getImageIpfsHash } from './getIpfsHash';
 import 'semantic-ui-css/semantic.min.css'
 const FileUpLoader = () => {
@@ -32,34 +32,54 @@ const FileUpLoader = () => {
 
     return (
         <>
-            <Segment.Group>
-                <Segment>
-                    <Card.Header> File Uploader</Card.Header>
-                    <Card.Meta>Max size: 5m</Card.Meta>
-                    <Form onSubmit={handleSubmit}>
-                        <Card.Description>
-                            Select file, then hit "Submit"
+            <Grid divided='vertically'>
+                <Grid.Row columns={3}>
+
+                    <Grid.Column>
+                    </Grid.Column>
+                    <Grid.Column>
+                    </Grid.Column>
+                    <Grid.Column>
+                    </Grid.Column>
+                    <Grid.Column>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Segment.Group>
+                            <Segment>
+                                <Card.Header> File Uploader</Card.Header>
+                                <Card.Meta>Max size: 5m</Card.Meta>
+                                <Form onSubmit={handleSubmit}>
+                                    <Card.Description>
+                                        Select file, then hit "Submit"
                       </Card.Description>
-                        <Form.Field>
-                            <Input type="file" onChange={handleChange}></Input>
-                        </Form.Field>
-                        <Button>Submit</Button>
-                    </Form>
-                </Segment>
-                {load ? <></> : <Message as="h3">Uploading...</Message>}
-                {end ? <Message positive>End</Message> : <></>}
-                <Segment>IPFS Hash : {resultHash}</Segment>
-                <Segment>
-                    Check your IPFS Link {' '}
-                    <a
-                        href={`https://ipfs.io/ipfs/${resultHash}`}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
-                        here
+                                    <Form.Field>
+                                        <Input name="username" type="file" onChange={handleChange}></Input>
+                                    </Form.Field>
+                                    <Button>Submit</Button>
+                                </Form>
+                            </Segment>
+                            {load ? <></> : <Message as="h3">Uploading...</Message>}
+                            {end ? <Message positive>Upload successful :\)</Message> : <></>}
+                            <Segment>IPFS Hash : {resultHash}</Segment>
+                            <Segment>
+                                Check your IPFS Link {' '}
+                                <a
+                                    href={`https://ipfs.io/ipfs/${resultHash}`}
+                                    target="_blank"
+                                    rel="noreferrer noopener"
+                                >
+                                    here
           </a>
-                </Segment>
-            </Segment.Group>
+                            </Segment>
+                        </Segment.Group>
+                    </Grid.Column>
+                    <Grid.Column>
+                    </Grid.Column>
+                    <Grid.Column>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+
         </>
     );
 };

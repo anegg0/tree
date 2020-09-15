@@ -1,5 +1,7 @@
 import './Login.css';
 
+import { Button } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css'
 import React from 'react';
 import Web3 from 'web3';
 
@@ -122,9 +124,9 @@ export class Login extends React.Component<Props> {
                     <br />
           For the purpose of this demo, only MetaMask login is implemented.
         </p>
-                <button className="Login-button Login-mm" onClick={this.handleClick}>
+                <Button className="Login-button Login-mm" onClick={this.handleClick}>
                     {loading ? 'Loading...' : 'Login with MetaMask'}
-                </button>
+                </Button>
             </div>
         );
     }

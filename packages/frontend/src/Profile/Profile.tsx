@@ -3,6 +3,8 @@ import jwtDecode from 'jwt-decode';
 import React from 'react';
 import Blockies from 'react-blockies';
 
+import { Grid, Card, Segment, Form, Input, Button, Message } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css'
 import { Auth } from '../types';
 
 interface Props {
@@ -104,13 +106,13 @@ export class Profile extends React.Component<Props, State> {
                 </div>
                 <div>
                     <label htmlFor="username">Change username: </label>
-                    <input name="username" onChange={this.handleChange} />
-                    <button disabled={loading} onClick={this.handleSubmit}>
+                    <Input name="username" onChange={this.handleChange} />
+                    <Button disabled={loading} onClick={this.handleSubmit}>
                         Submit
-          </button>
+          </Button>
                 </div>
                 <p>
-                    <button onClick={onLoggedOut}>Logout</button>
+                    <Button onClick={onLoggedOut}>Logout</Button>
                 </p>
             </div>
         );
