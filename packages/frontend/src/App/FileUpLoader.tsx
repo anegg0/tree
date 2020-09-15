@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Segment, Form, Input, Button, Message } from 'semantic-ui-react';
+import { Card, Segment, Form, Input, Button, Message } from 'semantic-ui-react';
 import { getImageIpfsHash } from './getIpfsHash';
-
+import 'semantic-ui-css/semantic.min.css'
 const FileUpLoader = () => {
     const [buffer, setBuffer] = useState<ArrayBuffer>(new ArrayBuffer(0));
     const [resultHash, setResultHash] = useState('');
@@ -32,10 +32,14 @@ const FileUpLoader = () => {
 
     return (
         <>
-            <h3>File Uploader</h3>
             <Segment.Group>
                 <Segment>
+                    <Card.Header> File Uploader</Card.Header>
+                    <Card.Meta>Max size: 5m</Card.Meta>
                     <Form onSubmit={handleSubmit}>
+                        <Card.Description>
+                            Select file, then hit "Submit"
+                      </Card.Description>
                         <Form.Field>
                             <Input type="file" onChange={handleChange}></Input>
                         </Form.Field>
@@ -46,7 +50,7 @@ const FileUpLoader = () => {
                 {end ? <Message positive>End</Message> : <></>}
                 <Segment>IPFS Hash : {resultHash}</Segment>
                 <Segment>
-                    IPFS Link is{' '}
+                    Check your IPFS Link {' '}
                     <a
                         href={`https://ipfs.io/ipfs/${resultHash}`}
                         target="_blank"

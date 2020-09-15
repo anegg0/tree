@@ -96,10 +96,10 @@ export class Profile extends React.Component<Props, State> {
         return (
             <div className="Profile">
                 <p>
-                    Logged in as <Blockies seed={publicAddress} />
+                    You are logged in as <Blockies seed={publicAddress} />
                 </p>
                 <div>
-                    My username is {username ? <pre>{username}</pre> : 'not set.'} My
+                    Your username is {username ? <pre>{username}</pre> : 'not set.'} My
           publicAddress is <pre>{publicAddress}</pre>
                 </div>
                 <div>

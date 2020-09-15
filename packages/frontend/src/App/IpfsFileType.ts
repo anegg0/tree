@@ -10,5 +10,3 @@ export class IpfsFile {
     this.url = url;
   }
 }
-
-// export { IpfsFile };

@@ -9,7 +9,6 @@ import { Login } from '../Login';
 import { Profile } from '../Profile/Profile';
 import { Auth } from '../types';
 import logo from './logo.svg';
-/* import { IpfsFile } from '../FileManager/Ipfs'; */
 
 const LS_KEY = 'login-with-metamask:auth';
 
@@ -72,10 +71,10 @@ export class App extends React.Component<{}, State> {
     render(): JSX.Element {
         const { auth } = this.state;
         return (
-            <div className="App">
+            <Segment basic className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to Tree</h1>
+                    <h1 className="App-title">Welcome to Tree Proof of Plant: a PoC for reforestation</h1>
                 </header>
                 <div className="App-intro">
                     {auth ? (
@@ -91,7 +90,7 @@ export class App extends React.Component<{}, State> {
                             </div>
                         )}
                 </div>
-            </div>
+            </Segment>
         );
     }
 }
