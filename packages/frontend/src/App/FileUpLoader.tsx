@@ -59,7 +59,7 @@ const FileUpLoader = () => {
                                 </Form>
                             </Segment>
                             {load ? <></> : <Message as="h3">Uploading...</Message>}
-                            {end ? <Message positive>Upload successful :\)</Message> : <></>}
+                            {end ? <Message positive>Upload successful :-)</Message> : <></>}
                             <Segment>IPFS Hash : {resultHash}</Segment>
                             <Segment>
                                 Check your IPFS Link {' '}

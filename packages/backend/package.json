@@ -47,6 +47,8 @@
     "peer-id": "^0.14.1",
     "sequelize": "^6.3.4",
     "sqlite3": "^5.0.0",
+    "truffle": "^5.1.44",
+    "truffle-hdwallet-provider": "^1.0.17",
     "typescript": "^4.0.2",
     "web3-utils": "^1.2.11"
   },

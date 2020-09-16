@@ -74,7 +74,7 @@ export class App extends React.Component<{}, State> {
             <Segment basic className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to Tree Proof of Plant: a PoC for reforestation</h1>
+                    <h1 className="App-title">Welcome to Tree Proof of Plant</h1>
                 </header>
                 <div className="App-intro">
                     {auth ? (
