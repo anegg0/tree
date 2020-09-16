@@ -2,7 +2,7 @@ import express from 'express';
 
 import { authRouter } from './auth';
 import { userRouter } from './users';
-import { filesRouter } from './files';
+import { filesRouter } from './ipfs';
 
 export const services = express.Router();
 
