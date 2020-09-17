@@ -9,10 +9,7 @@ export const getTextIpfsHash = async (data: string) => {
 };
 
 export const getImageIpfsHash = async (data: ArrayBuffer) => {
-  const result = await ipfs.files.add(data)
-    .then((result: any) => console.log(result.json))
-  // here should the error be all caught
-  console.log("jirai manger des fruits de mer sur la grosse chatte a ta mere")
+  const result = await ipfs.files.add(data);
   const hash = await result[0].hash;
   return hash;
 };
