@@ -3,7 +3,7 @@ import { Grid, Card, Segment, Form, Input, Button, Message } from 'semantic-ui-r
 import { getImageIpfsHash } from './getIpfsHash';
 import 'semantic-ui-css/semantic.min.css'
 
-const FileUpLoader = () => {
+const FileGetter = () => {
     const [buffer, setBuffer] = useState<ArrayBuffer>(new ArrayBuffer(0));
     const [resultHash, setResultHash] = useState('');
     const [load, setLoad] = useState<boolean>(true);
@@ -34,16 +34,8 @@ const FileUpLoader = () => {
     return (
         <>
             <Grid divided='vertically'>
-                <Grid.Row columns={3}>
+                <Grid.Row columns={1}>
 
-                    <Grid.Column>
-                    </Grid.Column>
-                    <Grid.Column>
-                    </Grid.Column>
-                    <Grid.Column>
-                    </Grid.Column>
-                    <Grid.Column>
-                    </Grid.Column>
                     <Grid.Column>
                         <Segment.Group>
                             <Segment>
@@ -52,7 +44,7 @@ const FileUpLoader = () => {
                                 <Form onSubmit={handleSubmit}>
                                     <Card.Description>
                                         Select file, then hit "Submit"
-                                    </Card.Description>
+                      </Card.Description>
                                     <Form.Field>
                                         <Input name="username" type="file" onChange={handleChange}></Input>
                                     </Form.Field>
@@ -60,7 +52,7 @@ const FileUpLoader = () => {
                                 </Form>
                             </Segment>
                             {load ? <></> : <Message as="h3">Uploading...</Message>}
-                            {end ? <Message positive>Upload successful :-)</Message> : <></>}
+                            {end ? <Message positive>Upload successful </Message> : <></>}
                             <Segment>IPFS Hash : {resultHash}</Segment>
                             <Segment>
                                 Check your IPFS Link {' '}
@@ -74,10 +66,6 @@ const FileUpLoader = () => {
                             </Segment>
                         </Segment.Group>
                     </Grid.Column>
-                    <Grid.Column>
-                    </Grid.Column>
-                    <Grid.Column>
-                    </Grid.Column>
                 </Grid.Row>
             </Grid>
 
@@ -85,4 +73,4 @@ const FileUpLoader = () => {
     );
 };
 
-export default FileUpLoader;
+export default FileGetter;

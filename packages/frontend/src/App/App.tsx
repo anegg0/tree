@@ -72,10 +72,7 @@ export class App extends React.Component<{}, State> {
         const { auth } = this.state;
         return (
             <Segment basic className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to Tree Proof of Plant</h1>
-                </header>
+                <h1 className="App-title">Welcome to Tree Proof of Plant</h1>
                 <div className="App-intro">
                     {auth ? (
                         <div>
@@ -94,3 +91,5 @@ export class App extends React.Component<{}, State> {
         );
     }
 }
+
+export default App;
