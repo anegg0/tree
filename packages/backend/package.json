@@ -32,6 +32,7 @@
     "datastore-core": "^2.0.0",
     "datastore-level": "^2.0.0",
     "dotenv": "^8.2.0",
+    "eslint": "^7.9.0",
     "eth-sig-util": "^2.5.3",
     "ethereumjs-util": "^7.0.4",
     "express": "^4.16.4",
