@@ -78,34 +78,33 @@ const FileUpLoader = () => {
               <p>
                 <Form onSubmit={handleSubmit}>
                   <Card.Description>
-                    Select the file you wish to store on IPFS
+                    Select the file you wish to store on IPFS:
   </Card.Description>
                   <Form.Field>
                     <div><Input name="username" type="file" onChange={handleChange}></Input>  </div>
 
-    <form>
-                    <Card.Description>
-                      Save the picture of your tree to IPFS
+                    <form>
+                      <Card.Description>
+                        Save a picture of your tree to IPFS:
 
   </Card.Description>
+                      <Segment>
                         <Button>Send picture to IPFS</Button>
-                      </form>
+                      </Segment>
+                    </form>
                   </Form.Field>
                 </Form>
+    {end ?  <Message positive>Your IPFS hash is  {resultHash} </Message>
 
-                {load ? <></> : <Message as="h3">Uploading...</Message>}
-                {end ? <Message positive>Upload successful :-)</Message> : <></>}
-  <div>Here is your IPFS hash
- : {resultHash}</div>
-
+     :<></> }
                 <Segment>
-                  Check your IPFS Link {' '}
+
                   <a
                     href={`https://ipfs.io/ipfs/${resultHash}`}
                     target="_blank"
                     rel="noreferrer noopener"
                   >
-  Click here to view your file (once uploaded)
+    Click here to view your file (once uploaded) {resultHash}
 </a>
                 </Segment>
               </p>
