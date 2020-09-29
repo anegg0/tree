@@ -45,7 +45,7 @@ const FileUpLoader = () => {
       p {
         align-content: center;
         background-color: #495285;
-        color: #fff;
+color: #ffffcc
         display: flex;
         flex-direction: column;
         justify-content: center;

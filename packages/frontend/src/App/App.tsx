@@ -2,7 +2,7 @@
 import FileUpLoader from './FileUpLoader';
 import React from 'react';
 
-import {Button, Divider, Grid, Container, Segment, Header } from 'semantic-ui-react';
+import { Button, Divider, Grid, Container, Segment, Header } from 'semantic-ui-react';
 import { IpfsFile } from './IpfsFileType';
 import { Login } from '../Login';
 import { Profile } from '../Profile/Profile';
@@ -10,8 +10,8 @@ import { Auth } from '../types';
 import logo from './logo.svg';
 
 
-    const LS_KEY = 'login-with-metamask:auth';
-  interface State {
+const LS_KEY = 'login-with-metamask:auth';
+interface State {
   webServiceErrorStatus: string; auth?: Auth;
   isUploadLoading: boolean;
   isSearchLoading: boolean;
@@ -24,11 +24,7 @@ import logo from './logo.svg';
   uploadedHashes: string[];
 }
 
-// interface Props {
-//   auth: Auth;
-//   onLoggedOut: () => void;
-// }
- export class App extends React.Component<{}, State> {
+export class App extends React.Component<{}, State> {
 
   state: State = {
     accessToken: '',
@@ -71,27 +67,44 @@ import logo from './logo.svg';
     const { auth } = this.state;
 
     return (
-      <div>
-        <Grid.Row columns={3}>
-          <Segment basic className="App">
-            <h1 className="App-title" color="#FFFF">Welcome to Tree Proof of Plant</h1>
-            <div className="App-intro"></div>
-            {auth ? (
-              <div>
-                <Profile auth={auth} onLoggedOut={this.handleLoggedOut} />
-                <div>
-                  <FileUpLoader />
-                </div>
-             </div>
-            ) : (
-                <div>
-                  <Login onLoggedIn={this.handleLoggedIn} />
-                </div>
-              )}
-          </Segment>
-        </Grid.Row>
+      <>
+        <Container>
+          <Header as='h2' inverted textAlign='center'>
+        Welcome to Tree Proof of Plant      </Header>
+          <Grid relaxed>
+            <Grid.Row>
+              <Grid.Column width={4}>
+                <p>
+                  <span>Four</span>
+                </p>
+              </Grid.Column>
+              <Grid.Column width={8}>
+        <Segment basic className="App">
+        <div className="App-intro"></div>
+        {auth ? (
+          <div>
+            <Profile auth={auth} onLoggedOut={this.handleLoggedOut} />
+            <div>
+            <FileUpLoader />
+            </div>
+            </div>
+        ) : (
+          <div>
+            <Login onLoggedIn={this.handleLoggedIn} />
+            </div>
+        )}
+      </Segment>
+              </Grid.Column>
+              <Grid.Column width={4}>
+                <p>
+                  <span>Four</span>
+                </p>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
 
-        </div>
-    );
-
-}}
+        </ Container>
+      </>
+    )
+  }
+}
