@@ -61,20 +61,13 @@ color: #ffffcc
         </style>
 
         <Divider />
-
-
         <Header as='h2' inverted textAlign='center'>
           File Uploader
     </Header>
         <Header as='h4' inverted textAlign='center'>
           Max size: 5m
   </Header>
-        <Grid>
 
-          <Grid.Row>
-            <Grid.Column width={4}>
-            </Grid.Column>
-            <Grid.Column width={8}>
               <p>
                 <Form onSubmit={handleSubmit}>
                   <Card.Description>
@@ -108,11 +101,6 @@ color: #ffffcc
 </a>
                 </Segment>
               </p>
-            </Grid.Column>
-            <Grid.Column width={4}>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
 
 
 
