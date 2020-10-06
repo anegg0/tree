@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode';
 import React from 'react';
 import Blockies from 'react-blockies';
 
-import { Message, Form, Card, Input, Segment, Button, Grid } from 'semantic-ui-react';
+import { Message, Container, Form, Card, Input, Segment, Button, Grid } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
 import { Auth } from '../types';
 
@@ -96,54 +96,30 @@ export class Profile extends React.Component<Props, State> {
         const username = user && user.username;
 
         return (
-            <Grid divided='vertically'>
-                <Grid.Row columns={3}>
-                    <Grid.Column>
-                        <Segment.Group>
-                            <div >
-                                <Segment>
-                                    You are logged in as: <Blockies seed={publicAddress} />
-                                </Segment>
-                                <Segment>
-                                    Your username is: {username ? <pre>{username}</pre> : 'not set.'}
-                                </Segment>
-                                <Segment>
-                                    Your publicAddress is: <pre>{publicAddress}</pre>
-                                </Segment>
-                                <Segment>
-                                    <Form>
-                                        <label htmlFor="username">Change username: </label>
-                                        <Input name="username" onChange={this.handleChange} />
-                                        <Button disabled={loading} onClick={this.handleSubmit}>
-                                            Submit
+            <div>
+                <Container>
+                    <Segment>
+                        You are logged in as: <Blockies seed={publicAddress} />
+                        <Button onClick={onLoggedOut}>Logout</Button>
+                    </Segment>
+                    <Segment>
+                        Your username is: {username ? <pre>{username}</pre> : 'not set.'}
+                    </Segment>
+                    <Segment>
+                        Your publicAddress is: <pre>{publicAddress}</pre>
+                    </Segment>
+                    <Segment>
+                        <Form>
+                            <label htmlFor="username">Change username: </label>
+                            <Input name="username" onChange={this.handleChange} />
+                            <Button disabled={loading} onClick={this.handleSubmit}>
+                                Submit
                               </Button>
-                                    </Form>
-                                </Segment>
-                                <p>
-                                    <Button onClick={onLoggedOut}>Logout</Button>
-                                </p>
-                            </div>
-                            <Segment>
-                                <Card.Description>
-                                </Card.Description>
-                                <Form.Field>
-                                </Form.Field>
-                                <Button>Submit</Button>
-                            </Segment>
-                            <Segment></Segment>
-                            <Segment>
-                            </Segment>
-                        </Segment.Group>
-                    </Grid.Column>
-                    <Grid.Column>
-                    </Grid.Column>
+                        </Form>
+                    </Segment>
 
-                    <Grid.Column>
-                    </Grid.Column>
-                    <Grid.Column>
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid >
+                </Container>
+            </div>
         );
     }
 }

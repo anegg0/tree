@@ -60,7 +60,6 @@ color: #ffffcc
     `}
         </style>
 
-        <Divider />
         <Header as='h2' inverted textAlign='center'>
           File Uploader
     </Header>
@@ -113,29 +112,6 @@ color: #ffffcc
 
       .ui[class*="vertically divided"].grid > .row:before {
         box-shadow: 0 -1px 0 0 rgba(212, 212, 212, 1.0);
-      }
-    `}
-        </style>
-
-
-        <style>
-          {`
-      #nested_1, #nested_2 {
-        background-color: rgba(96, 112, 175, .2);
-        border: 3px dashed #495285;
-      }
-
-      #nested_1 p, #nested_2 p {
-        background-color: #f2b632;
-      }
-
-      #nested_3 {
-        background-color: rgba(242, 182, 50, .3);
-        border: 3px dashed #f2b632;
-      }
-
-      #nested_3 p {
-        background-color: #fff;
       }
     `}
         </style>
