@@ -1,8 +1,8 @@
 
 import FileUpLoader from '../File/FileUpLoader';
 import React from 'react';
-import  MainHeader  from '../Style/MainHeader';
-import { Button, Divider, Grid, Container, Segment, Header } from 'semantic-ui-react';
+import MetaLogin  from '../Style/MetaLogin';
+import {Label, Button, Divider, Grid, Container, Segment, Header } from 'semantic-ui-react';
 import { IpfsFile } from '../File/IpfsFileType';
 import { Login } from '../Login';
 import { Profile } from '../Profile/Profile';
@@ -68,7 +68,6 @@ export class App extends React.Component<{}, State> {
 
         return (
             <>
-                <MainHeader/>
                     <div>
                     <Header as='h1' inverted textAlign='center'>
                         Welcome to Tree: A Proof of Plant      </Header>
@@ -79,7 +78,13 @@ export class App extends React.Component<{}, State> {
                         <FileUpLoader />
                     </div>
                 ) : (
-                        <Login onLoggedIn={this.handleLoggedIn} />
+                    <div>
+                        <Segment>
+                            <Segment basic textAlign={"center"}>
+                                <Login  onLoggedIn={this.handleLoggedIn} />
+                            </Segment>
+                        </Segment>
+                    </div>
                     )}
 
             </>
