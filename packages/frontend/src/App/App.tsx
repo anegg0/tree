@@ -1,7 +1,7 @@
 
 import FileUpLoader from '../File/FileUpLoader';
 import React from 'react';
-
+import  MainHeader  from '../Style/MainHeader';
 import { Button, Divider, Grid, Container, Segment, Header } from 'semantic-ui-react';
 import { IpfsFile } from '../File/IpfsFileType';
 import { Login } from '../Login';
@@ -68,15 +68,14 @@ export class App extends React.Component<{}, State> {
 
         return (
             <>
-                <Container>
+                <MainHeader/>
+                    <div>
                     <Header as='h1' inverted textAlign='center'>
                         Welcome to Tree: A Proof of Plant      </Header>
-                </ Container>
-                {/* <div className="App-intro"></div> */}
+                </div>
                 {auth ? (
                     <div>
                         <Profile auth={auth} onLoggedOut={this.handleLoggedOut} />
-                        <Divider />
                         <FileUpLoader />
                     </div>
                 ) : (
