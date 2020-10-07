@@ -1,9 +1,9 @@
 
-import FileUpLoader from './FileUpLoader';
+import FileUpLoader from '../File/FileUpLoader';
 import React from 'react';
 
 import { Button, Divider, Grid, Container, Segment, Header } from 'semantic-ui-react';
-import { IpfsFile } from './IpfsFileType';
+import { IpfsFile } from '../File/IpfsFileType';
 import { Login } from '../Login';
 import { Profile } from '../Profile/Profile';
 import { Auth } from '../types';

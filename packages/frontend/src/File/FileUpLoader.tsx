@@ -3,10 +3,11 @@ import { Container, Header, Card, Segment, Form, Input, Button, Message } from '
 import { getImageIpfsHash } from './getIpfsHash';
 import 'semantic-ui-css/semantic.min.css'
 require('../services/config');
-import moment from 'moment';
-import app from 'express';
-// import hsService  from './services/hs-service';
-import FileUpLoader =  () => {
+/* import moment from 'moment'; */
+/* import app from 'express'; */
+/* import hsService  from './services/hs-service'; */
+
+const FileUpLoader = () => {
 
   const [buffer, setBuffer] = useState<ArrayBuffer>(new ArrayBuffer(0));
   const [resultHash, setResultHash] = useState('');
@@ -157,4 +158,5 @@ color: #ffffcc
   );
 };
 
+}
 export default FileUpLoader;
