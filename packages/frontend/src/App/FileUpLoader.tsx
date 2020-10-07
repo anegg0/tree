@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { Container, Divider, Grid, Header, Card, Segment, Form, Input, Button, Message } from 'semantic-ui-react';
+import { Container, Header, Card, Segment, Form, Input, Button, Message } from 'semantic-ui-react';
 import { getImageIpfsHash } from './getIpfsHash';
 import 'semantic-ui-css/semantic.min.css'
+require('../services/config');
+import moment from 'moment';
+import app from 'express';
+// import hsService  from './services/hs-service';
+import FileUpLoader =  () => {
 
-const FileUpLoader = () => {
   const [buffer, setBuffer] = useState<ArrayBuffer>(new ArrayBuffer(0));
   const [resultHash, setResultHash] = useState('');
   const [load, setLoad] = useState<boolean>(true);
@@ -28,14 +32,37 @@ const FileUpLoader = () => {
     const hash: string = await getImageIpfsHash(buffer);
     setResultHash(hash);
     console.log(hash);
+      //sent a transaction with the hash
     setEnd(true);
-  };
+
+  //     app.post('/addfile', async function(req, res) {
+	//         try 
+	//         {	
+	// 	          //## prepare data
+	// 	          const epochTime = Math.round(moment().format('X'));
+		          
+	// 	          //## save to blockchain
+	// 	          console.log('fileHash : ' + fileHash);
+	// 	          const data = await hsService.add(fileIPFS[0].hash, fileHash, epochTime);
+		          
+	// 	          console.log('Added to ETH Blockchain!');
+	// 	          res.status(200).send(JSON.stringify({tx: data, ipfsHash: fileIPFS[0].hash, fileHash: fileHash}));
+	//         } catch (err) {
+	// 	          console.log(err);
+
+	// 	          if(err.message.includes("revert")) {
+	// 		            res.status(409).send();
+	// 	          } 
+	// 	          else {
+	// 		            res.status(500).send();
+	// 	          }
+	//         }
+  //     })
+  // };
 
   return (
     <>
-
       <Container>
-        {/* Heads up! We apply there some custom styling, you usually will not need it. */}
         <style>
           {`
       html, body {
