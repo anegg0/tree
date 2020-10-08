@@ -1,16 +1,16 @@
-const web3 = require('./web3-provider');
+import { web3 } from './web3-provider';
 
 module.exports = {
-    
-    hashString: (data) => {
+
+    hashString: (data: any) => {
         if(typeof data !== 'string') {
             throw new Error(`expecting argument of type string, but got: ${typeof data}`);
         }
 
-        return web3.utils.soliditySha3(data); 
+        return web3.utils.soliditySha3(data);
     },
 
-    stringToBytes: (data) => {
+  stringToBytes: (data: any) => {
         if(typeof data !== 'string') {
             throw new Error(`expecting argument of type string, but got: ${typeof data}`);
         }
@@ -18,11 +18,11 @@ module.exports = {
         return web3.utils.asciiToHex(data);
     },
 
-    bytesToString: (bytes) => {
+  bytesToString: (bytes: any) => {
         return web3.utils.hexToUtf8(bytes);
     },
 
-    numberInEtherToWei: (data) => {
+  numberInEtherToWei: (data: any) => {
         return web3.utils.toWei(data, 'ether');
     }
 };
