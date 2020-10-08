@@ -1,5 +1,5 @@
 
-/* import FileUpLoader from '../File/FileUpLoader'; */
+import FileUpLoader from '../File/FileUpLoader';
 import React from 'react';
 /* import MetaLogin  from '../Style/MetaLogin'; */
 import {Label, Button, Divider, Grid, Container, Segment, Header } from 'semantic-ui-react';
@@ -75,7 +75,7 @@ export class App extends React.Component<{}, State> {
                 {auth ? (
                     <div>
                         <Profile auth={auth} onLoggedOut={this.handleLoggedOut} />
-                        {/* <FileUpLoader /> */}
+                        <FileUpLoader />
                     </div>
                 ) : (
                     <div>
