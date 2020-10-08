@@ -1,9 +1,9 @@
 import React from 'react'
-import { Header, Icon } from 'semantic-ui-react'
+import {Container, Header, Icon } from 'semantic-ui-react'
 
 
 const HeaderSettingsIcon = () => (
-
+    <Container>
     <Header as='h3' inverted color='orange'>
         <Icon name='leaf' />
         < Header.Subheader >
@@ -11,6 +11,7 @@ const HeaderSettingsIcon = () => (
             Tree: Proof of plant
         </Header.Subheader >
     </Header >
+    </Container>
 )
 
 export default HeaderSettingsIcon

@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+const moment = require('moment');
 import { Container, Divider, Grid, Header, Card, Segment, Form, Input, Button, Message } from 'semantic-ui-react';
 import { getImageIpfsHash } from './getIpfsHash';
 import 'semantic-ui-css/semantic.min.css'
+const app = express();
+const hsService = require('./services/hs-service');
+const web3Utils = require('./services/web3-utils');
+const CryptoJS = require("crypto-js");
+const bodyParser = require('body-parser');
 
 const FileUpLoader = () => {
     const [buffer, setBuffer] = useState<ArrayBuffer>(new ArrayBuffer(0));
@@ -28,6 +34,25 @@ const FileUpLoader = () => {
         const hash: string = await getImageIpfsHash(buffer);
         setResultHash(hash);
         console.log(hash);
+// addFile to blockchain
+		    const epochTime = Math.round(moment().format('X'));
+
+		    //## need to ask infura for raw hash
+		    //## save to blockchain
+		    const data = await hsService.add(fileIPFS[0].hash, fileHash, epochTime);
+		    
+		    console.log('Added to ETH Blockchain!');
+		    res.status(200).send(JSON.stringify({tx: data, ipfsHash: fileIPFS[0].hash, fileHash: fileHash}));
+	  } catch (err) {
+		    console.log(err);
+
+		    if(err.message.includes("revert")) {
+			      res.status(409).send();
+		    } 
+		    else {
+			      res.status(500).send();
+		    }
+	  }
         setEnd(true);
     };
 
