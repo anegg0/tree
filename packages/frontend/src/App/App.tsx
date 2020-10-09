@@ -1,5 +1,5 @@
 
-import FileUpLoader from './FileUpLoader';
+import FileUpLoader from '../File/FileUpLoader';
 import React from 'react';
 /* import MetaLogin  from '../Style/MetaLogin'; */
 import {Label, Button, Divider, Grid, Container, Segment, Header } from 'semantic-ui-react';
