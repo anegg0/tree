@@ -102,7 +102,6 @@ color: #ffffcc
                   }
                   `}
                   </style>
-
         <Divider />
         <Header as='h2' inverted textAlign='center'>
           File Uploader

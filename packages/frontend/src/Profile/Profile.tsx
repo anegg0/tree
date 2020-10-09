@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode';
 import React from 'react';
 import Blockies from 'react-blockies';
 
-import { Message, Container, Form, Card, Input, Segment, Button, Grid } from 'semantic-ui-react';
+import {Header, Divider, Message, Container, Form, Card, Input, Segment, Button, Grid } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
 import { Auth } from '../types';
 
@@ -97,6 +97,13 @@ export class Profile extends React.Component<Props, State> {
 
         return (
             <div>
+              <Divider />
+              <Header as='h2' inverted textAlign='center'>
+                Your Web3 profile
+              </Header>
+              <Header as='h4' inverted textAlign='center'>
+                This dash lists your active address, name, and submitted proof of plant
+              </Header>
                 <Container>
                     <Segment>
                         You are logged in as: <Blockies seed={publicAddress} />

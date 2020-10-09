@@ -69,11 +69,31 @@ export class App extends React.Component<{}, State> {
         return (
             <>
 
-                    <div>
-                    <Header as='h1' inverted textAlign='center'>
-                        Welcome to Tree: A Proof of Plant      </Header>
-                </div>
-                {auth ? (
+              <style>
+                {`
+                  body {
+                  color: #767676;
+                  }
+                `}
+              </style>
+
+              <style>
+                {`
+                  h1.ui.dividing.header {
+                  color: #fff;
+                  }
+                `}
+              </style>
+              <Grid container style={{ padding: '5em 0em' }}>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Header as='h1' dividing>
+          Welcome to Tree: A Proof of Plant
+                    </Header>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+              {auth ? (
                     <div>
                         <Profile auth={auth} onLoggedOut={this.handleLoggedOut} />
 
@@ -89,8 +109,7 @@ export class App extends React.Component<{}, State> {
                             </Segment>
                         </Segment>
                     </div>
-                    )}
-
+              )}
             </>
         )
     }
