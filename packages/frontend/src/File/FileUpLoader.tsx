@@ -27,7 +27,7 @@ const FileUpLoader = () => {
     setLoad(false);
     const hash: string = await getImageIpfsHash(buffer);
     setResultHash(hash);
-    console.log(hash);
+    console.log("the final hash is:" + hash);
     setEnd(true);
   };
 
@@ -35,7 +35,6 @@ const FileUpLoader = () => {
     <>
 
       <Container>
-        {/* Heads up! We apply there some custom styling, you usually will not need it. */}
         <style>
           {`
       html, body {
@@ -60,52 +59,7 @@ color: #ffffcc
     `}
         </style>
 
-        <Divider />
-        <Header as='h2' inverted textAlign='center'>
-          File Uploader
-    </Header>
-        <Header as='h4' inverted textAlign='center'>
-          Max size: 5m
-  </Header>
-
-              <p>
-                <Form onSubmit={handleSubmit}>
-                  <Card.Description>
-                    Select the file you wish to store on IPFS:
-  </Card.Description>
-                  <Form.Field>
-                    <div><Input name="username" type="file" onChange={handleChange}></Input>  </div>
-
-                    <form>
-                      <Card.Description>
-                        Save a picture of your tree to IPFS:
-
-  </Card.Description>
-                      <Segment>
-                        <Button>Send picture to IPFS</Button>
-                      </Segment>
-                    </form>
-                  </Form.Field>
-                </Form>
-    {end ?  <Message positive>Your IPFS hash is  {resultHash} </Message>
-
-     :<></> }
-                <Segment>
-
-                  <a
-                    href={`https://ipfs.io/ipfs/${resultHash}`}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-    Click here to view your file (once uploaded) {resultHash}
-</a>
-                </Segment>
-              </p>
-
-
-
-        {/* Heads up! Override division color to make it visible on dark background. */}
-              {/* <style>
+              <style>
                   {`
                   .ui.grid.divided:not([class*="vertically divided"]) > .row > .column {
                   box-shadow: -1px 0 0 0 #d4d4d4;
@@ -142,13 +96,52 @@ color: #ffffcc
 
                   <style>
                   {`
-                  #colors p {
-                  background-color: 000;
-                  opacity: 0.1;
+                  body {
+                  color: #767676;
+                  background-color: #fff;
                   }
                   `}
                   </style>
-                */}
+
+        <Divider />
+        <Header as='h2' inverted textAlign='center'>
+          File Uploader
+    </Header>
+        <Header as='h4' inverted textAlign='center'>
+          Max size: 5m
+  </Header>
+
+                <Form onSubmit={handleSubmit}>
+                  <Card.Description>
+                    Select the file you wish to store on IPFS:
+                  </Card.Description>
+                  <Form.Field>
+                    <div><Input name="username" type="file" onChange={handleChange}></Input>  </div>
+
+                      <Card.Description>
+                        Save a picture of your tree to IPFS:
+
+  </Card.Description>
+                      <Segment>
+                        <Button>Send picture to IPFS</Button>
+                      </Segment>
+                  </Form.Field>
+                </Form>
+    {end ?  <Message positive>Your IPFS hash is  {resultHash} </Message>
+
+     :<></> }
+                <Segment>
+
+                  <a
+                    href={`https://ipfs.io/ipfs/${resultHash}`}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+    Click here to view your file (once uploaded) {resultHash}
+</a>
+                </Segment>
+
+
       </Container>
     </>
   );

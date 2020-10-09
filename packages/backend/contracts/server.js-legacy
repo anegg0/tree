@@ -12,32 +12,6 @@ const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize('mysql://tri:@localhost:3306/users');
 const cors = require('cors');
 
-// sequelize
-//     .authenticate()
-//     .then(() => {
-//         console.log('Connection has been established successfully.');
-//     })
-//     .catch(err => {
-//         console.error('Unable to connect to the database:', err);
-//     });
-
-// const User = sequelize.define('User', {
-//     nonce: {
-//         allowNull: false,
-//         type: Sequelize.INTEGER.UNSIGNED,
-//         defaultValue: () => Math.floor(Math.random() * 1000000) // Initialize with a random nonce
-//     },
-//     publicAddress: {
-//         allowNull: false,
-//         type: Sequelize.STRING,
-//         unique: true,
-//         validate: { isLowercase: true }
-//     },
-//     username: {
-//         type: Sequelize.STRING,
-//         unique: true
-//     }
-// });
 
 const ipfs = ipfsAPI(CONFIG.ipfs_api_address, CONFIG.ipfs_api_port, {protocol: 'http'});
 
@@ -53,24 +27,24 @@ app.use((req, res, next) => {
 });
 
 app.post('/addfile', async function(req, res) {
-	try 
-	{	
+	try
+	{
 		//## prepare data
 		const fileToAdd = req.body;
 		const fileContentWordArray = CryptoJS.lib.WordArray.create(req.body);
 		const fileHash = CryptoJS.SHA256(fileContentWordArray).toString();
-		
+
 		const epochTime = Math.round(moment().format('X'));
 		console.log(moment().format('X'));
-		
+
 		//## save to ifps
 		const fileIPFS = await ipfs.files.add(fileToAdd);
 		console.log('Added to ipfs : ' + fileIPFS[0].hash);
-		
+
 		//## save to blockchain
 		console.log('fileHash : ' + fileHash);
 		  const data = await hsService.add(fileIPFS[0].hash, fileHash, epochTime);
-		
+
 		console.log('Added to ETH Blockchain!');
 		res.status(200).send(JSON.stringify({tx: data, ipfsHash: fileIPFS[0].hash, fileHash: fileHash}));
 	} catch (err) {
@@ -78,43 +52,21 @@ app.post('/addfile', async function(req, res) {
 
 		if(err.message.includes("revert")) {
 			res.status(409).send();
-		} 
+		}
 		else {
 			res.status(500).send();
 		}
 	}
 })
 
-app.get('/users', async function(req, res, next) {
-	  try 
-	  {	
-		    //## prepare data
-		    const authRequest = req.query.publicAddress;
-		    console.log('req was received, it reads as: '+ authRequest);
-		    console.log('(req).user.payload.id" returns: '+ req.params.userId);
-
-// AccessToken payload is in req.user.payload, especially its `id` field
-// UserId is the param in /users/:userId
-// We only allow user accessing herself, i.e. require payload.id==userId
-	  } catch (err) {
-		    console.log("there was an error: " + err);
-
-		    if(err.message.includes("revert")) {
-			      res.status(409).send();
-		    } 
-		    else {
-			      res.status(500).send();
-		    }
-	  }
-})
 
 app.get('/getfile', async function(req, res) {
-    
+
 	if (!req.query.hash){
 		res.status(400).send({msg: 'Please provide file hash!'});
 		return;
 	}
-	
+
 	var hash = req.query.hash;
 	try {
 		//## get from blockchain
@@ -125,7 +77,7 @@ app.get('/getfile', async function(req, res) {
 			return;
 		}
 		console.log('Found in ETH Blockchain: ' + web3Utils.bytesToString(response[0].filehash));
-		
+
 		const ipfsHash = web3Utils.bytesToString(response[0].ipfshash);
 		//## get from ipfs
 		const files = await ipfs.files.get(ipfsHash);
@@ -145,5 +97,3 @@ app.get('/getfile', async function(req, res) {
 
 
 app.listen(CONFIG.port, () => console.log(`Tree listening on port ${CONFIG.port}`))
-
-// exports.User = User;
