@@ -1,5 +1,5 @@
 
-import FileUpLoader from '../File/FileUpLoader';
+import FileUpLoader from './FileUpLoader';
 import React from 'react';
 /* import MetaLogin  from '../Style/MetaLogin'; */
 import {Label, Button, Divider, Grid, Container, Segment, Header } from 'semantic-ui-react';
@@ -68,6 +68,7 @@ export class App extends React.Component<{}, State> {
 
         return (
             <>
+
                     <div>
                     <Header as='h1' inverted textAlign='center'>
                         Welcome to Tree: A Proof of Plant      </Header>
@@ -75,7 +76,10 @@ export class App extends React.Component<{}, State> {
                 {auth ? (
                     <div>
                         <Profile auth={auth} onLoggedOut={this.handleLoggedOut} />
+
                         <FileUpLoader />
+                      <div>
+                      </div>
                     </div>
                 ) : (
                     <div>
