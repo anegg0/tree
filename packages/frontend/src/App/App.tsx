@@ -1,4 +1,4 @@
-
+import TagsInput from '../Tag/TagsInput';
 import FileUpLoader from '../File/FileUpLoader';
 import React from 'react';
 /* import MetaLogin  from '../Style/MetaLogin'; */
